@@ -1,0 +1,397 @@
+body {
+  margin: 0;
+  background-color:BLACK;
+  font-size: larger;
+}
+
+div#hormenu {
+width: 10%;
+height:40px;
+float: right;
+margin: 0;
+padding: 0;
+border: 3px solid black;
+background: darkred;
+}
+
+div#hormenu ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+#hormenu li img{
+	height: 20px;
+}
+
+div#hormenu li
+{
+width:100%;
+float:left;
+margin-bottom: 0;
+padding-bottom: 10%;
+border-right: 1px solid black;
+}
+
+div#hormenu a
+{
+display: block;
+padding: 5px;
+color: white;
+text-decoration: none;
+}
+
+div#hormenu a:hover
+{
+background-color: white;
+color: darkred;
+text-decoration: none;
+}
+
+div#hormenu li ul
+{
+display: none
+}
+
+div#hormenu li:hover ul
+{
+display: block;
+position: absolute;
+z-index:1;
+width:20%;
+padding: 0;
+margin: 0 0 0 -1px;
+border:1px solid black;
+background: darkred;
+}
+
+
+div#hormenu li li { border:none; width:100%; }
+div#hormenu li li a { padding:2px 2px 2px 10px; }
+
+
+nav {
+  background-color: darkred;
+  height: 40px;
+  color:black;
+  overflow: hidden;
+}
+.topnav{
+  background-color: darkred;
+  height: 40px;
+  color:black;
+  overflow: hidden;
+  font-size:larger;
+}
+.topnav a{
+  display: inline-block;
+  color: white;
+  text-align: center;
+  margin-right:5%;
+  text-decoration: none;
+  height:100%;
+}
+
+.topnav a:hover{
+ background-color: white;
+color: darkred;
+text-decoration: none;
+}
+
+.topnav div{
+  text-align:center;
+  float: right;
+ padding-right:5%;
+}
+
+
+header {
+  background-image: url("https://sicilianews24.it/wp-content/uploads/2020/10/sala-cinema-scaled.jpg");
+  height: 60vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border: solid
+}
+
+header h1{
+  text-align:center;
+  padding-top:6%;
+  padding-right:4%;
+  color: darkred; 
+  font-size: 100px;
+
+}
+
+section em{
+  padding-left: 3%;
+  color: black;
+  font-size: 40px;
+}
+
+section {
+  background-color: gray;
+  margin: 5% 10%;
+}
+
+div#titolo{
+  color:darkred;
+  text-align:center;
+  height:15vh;
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+
+#flex-container {
+  display: flex;
+  height: 10vh;
+}
+
+#flex-container2 {
+  display: flex;
+  min-height: 60vh;
+}
+div.side{
+  width:15%;
+
+}
+div.center{
+  width:70%;
+  background-color:darkred;
+  color:black;
+}
+
+.center div{
+  margin:10%;
+}
+
+.center table table{
+	background: none;
+	box-shadow: none;
+	width:80%;
+}
+
+.center table{
+  width:100%;
+  margin-bottom: 10%;
+  background: rgb(20, 20, 20,.2);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-shadow: 10px 10px 8px rgb(0, 0, 0);
+  color:darkgray;
+}
+
+.titoloFilm a{
+	color:darkgray;
+	padding-left: 20%;
+	text-transform: capitalize;
+	
+}
+.center th{
+	font-size: xx-large;
+	font-weight: bolder;
+	color:darkred ;
+	background-color: gray;
+}
+.center td{
+  width: 50%;
+}
+.immagine td{
+  height:30vh;
+}
+.immagine img{
+  width:60%;
+  height:100%;
+  margin-left: 20%;
+}
+
+.immagine td a{
+	text-decoration: none;
+	color:gray;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.center td strong{
+	color: lightgray;
+}
+
+#schermo{
+	background-color: lightgray;
+	text-align: center;
+}
+
+.side ul{
+  margin-left:0%;
+  padding-left:0%;
+  color:white;
+  list-style-type: none;
+  width:100%;
+}
+.side li{
+  width:100%;
+  margin-bottom: 5%;;
+}
+.side a{
+ display:inline-block;
+  height:100%;
+  width:100%;
+  padding-left:10%;
+  text-decoration: none;
+  color:white;
+}
+
+.side a:hover{
+  color: darkred;
+  text-decoration: none;
+  background-color:white;
+}
+
+div.col {
+  background-color: white;
+  width: 45%;
+  vertical-align:50%;
+}
+
+div.go {
+  background-image: url("https://www.inventivashop.com/2256-thickbox_default/freccia-adesiva.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 10%;
+}
+
+.go a{
+ display:inline-block;
+  height:100%;
+  width:100%;
+}
+
+.go a:hover{
+color: darkred;
+text-decoration: none;
+  border:solid;
+  border-color:darkred;
+}
+
+#flex-container-posti{
+	display:flex;
+	flex-wrap: wrap;
+	border:solid;
+	margin-top:0;
+	background-color: gray;
+}
+
+div.posto {
+	width:10%;
+	margin:0;
+}
+
+span.occupato{
+	color:darkred;
+	font-weight: bolder;
+}
+
+.posto img{
+	width:60%
+}
+
+div.invio{
+	margin: 0;
+	margin-top:1%;
+	padding-right:5%;
+	width:100%;
+	text-align: end;
+	background-color: darkgray;
+}
+
+
+#mostraFilm tr.immagine td{
+	height:50vh;
+}
+
+#mostraFilm tr.immagine p{
+	min-height:50%;
+}
+
+#mostraFilm strong{
+	color: white;
+	font-weight: bolder;
+}
+
+#mostraFilm span{
+	padding-left:20%;
+}
+
+div.commenti {
+	min-height: 30vh;
+	background-color: white;
+}
+
+.commenti p{
+	height:5vh;
+	text-align: center;
+	background-color: gray;
+	color: darkred;
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+.commenti ul{
+	min-height:20vh;
+	color: black;
+	list-style: none;
+}
+
+.commenti input{
+	height:5vh;
+	width: 90%;
+	margin: 0;
+	border-right: thin;
+	border-left: none;
+}
+
+.commenti button{
+	height:5vh;
+	width: 9%;
+	border: none;
+	margin: 0;
+}
+
+footer {
+  background-color: darkred;
+  height: 30vh;
+}
+footer.fine {
+  background-color: darkred;
+  height: 10vh;
+}
+
+
+footer div{
+  margin-top:10%;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+
+footer a{
+	color:white;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

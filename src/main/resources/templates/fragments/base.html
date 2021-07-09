@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="headerfiles(title)">
+	<meta charset="UTF-8" />
+	<link th:href="@{/css/cinema.css}" rel="stylesheet">
+	<title th:text="${title}"></title>
+</head>
+
+<body>
+	<div th:fragment="mostraProfilo" id="hormenu">
+		<!-- div che contiene il menu -->
+		<ul>
+			<!-- lista principale: definisce il menu nella sua interezza -->
+			<li>
+				<a href="#"><img src="/images/profilo.png"/></a> <!-- primo list-item, prima voce del menu -->
+				<ul>
+					<!-- Lista annidata: voci del sotto-menu -->
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/profilo}">profilo </a></li>
+					<li sec:authorize="!isAuthenticated()"><a href="login">logIn</a></li>
+					<li sec:authorize="isAuthenticated()"><a href="logout">logOut</a></li>
+
+				</ul> <!-- Fine del sotto-menu -->
+			</li> <!-- Chiudo il list-item -->
+			<!--qui altri list-item -->
+	</div>
+	
+	 <div th:fragment="ricerca" class="side">
+       <form th:action="@{/cerca}">
+			<input type="text" name="keyword" />
+			<button type="submit">cerca</button>
+		</form>
+        </div>
+        
+
+
+	<footer th:fragment="fondo" class="fine">
+		<div>
+     <a href="/">
+     <em>Home</em>
+     </a>
+     </div>
+	</footer>
+</body>
+
+</html>

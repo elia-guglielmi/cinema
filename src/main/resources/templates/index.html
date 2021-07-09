@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='home-cinema')"> </head>
+
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<header>
+		<h1>
+			<em>Cinema Nigoldi</em>
+		</h1>
+	</header>
+	<div class="topnav">
+		<a th:href="@{/mattina}">matinee</a>
+		<a th:href="@{/pomeriggio}">pomeriggio</a>
+		<a th:href="@{/sera}">sera</a>
+		<div>
+		<form th:action="@{/cerca}">
+			<input type="text" name="keyword" />
+			<button type="submit">cerca</button>
+		</form>
+		</div>
+	</div>
+	<section>
+		<div id="flex-container">
+			<div class="col">
+				<p><em> Spettacoli</em></p>
+			</div>
+			<div class="col">
+				<img src="#" />
+			</div>
+			<div class="go">
+				<a href="spettacoli"></a>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div>
+			<h1 id="contatti">
+				<em>Contatti</em>
+			</h1>
+			<p>
+				<span>Indirizzo: </span>
+			</p>
+			<p>
+				<span>Email: </span>
+			</p>
+			<p>
+				<span>Telefono:</span>
+			</p>
+		</div>
+	</footer>
+</body>
+
+</html>

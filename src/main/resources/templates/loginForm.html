@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='logIn')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>LogIn</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+			</ul>
+		</div>
+		<div class="center">
+			<div>
+				<table>
+					<form th:action="@{/login}" method="POST">
+						<tr>
+							<td>Username:</td>
+							<td><input name="username" type="text" required /></td>
+						</tr>
+						<tr>
+							<td>Password:</td>
+							<td><input name="password" type="password" required /></td>
+						</tr>
+						<tr>
+							<td><button type="submit">Login</button></td>
+						</tr>
+						</form>
+							<form th:action="@{/register}" method="GET">
+								<tr>
+									<td><button type="submit">Registrati</button></td>
+								</tr>
+							</form>
+				</table>
+			</div>
+		</div>
+		<div th:replace="fragments/base.html :: ricerca">
+		</div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+	</footer>
+</body>
+
+</html>

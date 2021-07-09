@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='spettacoli')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>Spettacoli</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+				<li><a th:href="@{/spettacoli}">tutti</a></li>
+				<li><a th:href="@{/mattina}">matinee</a></li>
+				<li><a th:href="@{/pomeriggio}">pomeriggio</a></li>
+				<li><a th:href="@{/sera}">sera</a></li>
+			</ul>
+		</div>
+		<div class="center">
+			<div>
+				<table th:each="film:${films}">
+						<tr class="titoloFilm">
+							<td>
+								<h1><a th:href="@{'/film' + '/' + ${film.id}}" th:text="${film.titolo}">Titolo</a></h1>
+							</td>
+						</tr>
+						<tr class="immagine">
+							<td><img th:src="@{'/images/'+*{film.copertina}}" /></td>
+							<td>
+								<p th:text="${#strings.abbreviate(film.descrizione,200)}">breve descrizione </p> <a th:href="@{'/film' + '/' + ${film.id}}">Read more...</a>
+                  <p>orari:
+                  <ul th:if="${proiezioneOrario}">
+                      <li th:each="proiezione:${proiezioneOrario}" th:if="${proiezione.film}==${film}"><a th:href="@{'/prenotazione' + '/' + ${proiezione.id}}" th:text="|${proiezione.inizio} - ${proiezione.fine}|">ora esempio</a></li>
+                    </ul>
+                    <ul th:unless="${proiezioneOrario}">
+                      <li th:each="proiezione:${film.proiezioni}" th:text="|${proiezione.inizio} - ${proiezione.fine}|"></li>
+                    </ul>
+                  </p>
+                </td>
+              </tr>
+               <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div th:replace="fragments/base.html :: ricerca">
+        </div>
+      </div>
+   <footer th:replace="fragments/base.html :: fondo">
+   </footer>
+  </body>
+</html>

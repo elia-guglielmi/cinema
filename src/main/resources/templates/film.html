@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='film')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1 th:text="${film.titolo}">Spettacoli</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+				<li><a th:href="@{/spettacoli}">torna all'elenco</a></li>
+			</ul>
+		</div>
+		<div class="center">
+			<div>
+				<table id="mostraFilm">
+					<tr class="immagine">
+						<td><img th:src="@{'/images/'+*{film.copertina}}" /></td>
+						<td>
+							<strong>Descrizione</strong>
+							<p th:text="${film.descrizione}"> descrizione</p>
+							<strong>Orari</strong>
+							<ul>
+								<li th:each="proiezione:${film.proiezioni}">
+									<form th:action="@{'/prenotazione' + '/' + ${proiezione.id}}">
+										<a th:href="@{'/prenotazione' + '/' + ${proiezione.id}}"
+											th:text="|${proiezione.inizio} - ${proiezione.fine}|">ora esempio</a>
+										<button type="submit"> prenota </button>
+									</form>
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td><span th:text="|Reggista: ${film.nomeregista} ${film.cognomeregista}|"></span></td>
+					</tr>
+				</table>
+			</div>
+			<div class="commenti" id="commenti">
+				<p>commenti</p>
+				<ul>
+					<li th:each="commento:${film.commenti}">
+						<strong th:text="|${commento.utente.nome} ${commento.utente.nome}: |"></strong>
+						<span th:text="${commento.testo}"></span>
+					</li>
+				</ul>
+				<form th:action="@{'/commento' + '/' + ${film.id} + '#commenti'}" method="POST" th:object="${nuovoCommento}">
+					<input type="text" placeholder="lascia un commento" th:field="*{testo}" /> <button
+							type="submit">commenta</button>
+					<p th:if="${#fields.hasErrors('testo')}" th:errors="*{testo}"></p>
+          </form>
+          </div>
+        </div>
+        <div th:replace="fragments/base.html :: ricerca">
+        </div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+   </footer>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='modifica-Film')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>Modifica Film</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+				<li><a th:href="@{/admin}">torna al Menu</a></li>
+			</ul>
+		</div>
+		<div class="center">
+		<form th:action="@{'/admin/modificaFilm' + '/' + ${film.id}}" method="POST" enctype="multipart/form-data" th:object="${film}">	
+		<div>
+		<table class="update">
+		<th>Dati Film</th>
+			<tr>
+				<td><strong>Titolo: </strong><span th:text="*{titolo}"></span></td>
+				<td><strong>modifica titolo:</strong><input type="text" name="titolo" /></td>
+			</tr>		
+			<tr>
+				<td><strong>Descrizione:</strong> <span th:text="*{descrizione}"></span></td>
+				<td><strong>modifica descrizione:</strong><input type="text" name="descrizione" /></td>
+			</tr>
+			<tr>
+				<td><strong>regista: </strong><span th:text="|*{nomeregista} *{cognomeregista}|"></span></td>
+				<td><strong>modifica regista:</strong>
+				<p>nome<input type="text" name="nomeregista" /></p>
+				<p>cognome<input type="text" name="cognomeregista" /></p>
+				</td>
+			</tr>
+			<tr>
+			<td><img th:src="@{'/images/'+*{copertina}}" align="right"/></td>
+				<td><input type="file" name="file" accept="image/png, image/jpeg" /></td>
+			</tr>
+			<tr>
+			<td></td>
+				<td><button type="submit">Invio</button></td>
+			</tr>
+		</table>
+		</div>
+		</form>
+		</div>
+		<div th:replace="fragments/base.html :: ricerca">
+        </div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+   </footer>
+</body>
+
+</html>

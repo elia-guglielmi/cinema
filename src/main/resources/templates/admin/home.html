@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>admin-menu</title>
+	<link th:href="@{/css/cinema.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<div id="hormenu">
+		<!-- div che contiene il menu -->
+		<ul>
+			<!-- lista principale: definisce il menu nella sua interezza -->
+			<li>
+				<a href="#">Profilo</a> <!-- primo list-item, prima voce del menu -->
+				<ul>
+					<!-- Lista annidata: voci del sotto-menu -->
+					<li><a href="#">profilo </a></li>
+					<li><a href="#">logIn</a></li>
+					<li><a href="#">logOut</a></li>
+
+				</ul> <!-- Fine del sotto-menu -->
+			</li> <!-- Chiudo il list-item -->
+			<!--qui altri list-item -->
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>Menu Amministratore</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+			</ul>
+		</div>
+		<div class="center">
+			<div>
+				<table>
+				<th>Film</th>
+					<tr th:each="film:${films}">
+						<td th:text="${film.titolo}">titolo:</td>
+						<td>
+						<form th:action="@{'/admin/rimuovifilm' + '/' + ${film.id}}" method="GET">
+							<button class="rimuovi" type="submit">rimuovi</button>
+						</form>
+						</td>
+						<td>
+							<form th:action="@{'/admin/modificaFilm' + '/' + ${film.id}}" method="GET">
+								<button class="update" type="submit">modifica</button>
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td class="titolo">
+							<strong>aggiungi film</strong>
+						</td>
+						<td>
+							<form th:action="@{/admin/film}" method="GET">
+								<button class="add" type="submit">aggiungi</button>
+							</form>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div>
+				<table>
+				<th>Sale</th>
+					<tr th:each="sala:${sale}">
+						<td th:text="${sala.nome}">titolo:</td>
+						<td>
+						<form th:action="@{'/admin/rimuovisala' + '/' + ${sala.id}}" method="GET">
+							<button class="rimuovi" type="submit">rimuovi</button>
+						</form>
+						</td>
+						<td>
+							<form th:action="@{'/admin/modificaSala' + '/' + ${sala.id}}" method="GET">
+								<button class="update" type="submit">modifica</button>
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td class="titolo">
+							<strong>aggiungi sala</strong>
+						</td>
+						<td>
+							<form th:action="@{/admin/sala}" method="GET">
+								<button class="add" type="submit">aggiungi</button>
+							</form>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div>
+				<table>
+				<th>Proiezioni</th>
+					<tr th:each="proiezione:${proiezioni}">
+						<td th:text="|${proiezione.film.titolo} ${proiezione.inizio}|">titolo:</td>
+						<td>
+						<form th:action="@{'/admin/rimuoviproiezione' + '/' + ${proiezione.id}}" method="GET">
+							<button class="rimuovi" type="submit">rimuovi</button>
+						</form>
+						</td>
+						<td>
+							<form th:action="@{'/admin/modificaProiezione' + '/' + ${proiezione.id}}" method="GET">
+								<button class="update" type="submit">modifica</button>
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td class="titolo">
+							<strong>aggiungi proiezione</strong>
+						</td>
+						<td>
+							<form th:action="@{/admin/proiezione}" method="GET">
+								<button class="add" type="submit">aggiungi</button>
+							</form>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="side">
+			<input type="text" />
+			<button type="submit">cerca</button>
+		</div>
+	</div>
+	<footer class="fine">
+		<div>
+			<em>Home</em>
+		</div>
+	</footer>
+</body>
+</html>
+	

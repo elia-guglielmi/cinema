@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='proiezione-form')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>Aggiungi Spettacolo</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+				<li><a th:href="@{/admin}">torna al Menu</a></li>
+			</ul>
+		</div>
+		<div class="center">
+		<form th:action="@{/admin/proiezione}" method="POST"  th:object="${proiezione}">
+			<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>		
+		<div>
+		<table>
+		<th>Dati Spettacolo</th>
+			<tr>
+				<td><strong>ora inizio:</strong></td>
+				<td><input type="time" th:field="*{inizio}" /></td>
+				<td th:if="${#fields.hasErrors('inizio')}" th:errors="*{inizio}"></td>
+			</tr>	
+				<tr>
+				<td><strong>ora fine:</strong></td>
+				<td><input type="time" th:field="*{fine}" /></td>
+				<td th:if="${#fields.hasErrors('fine')}" th:errors="*{fine}"></td>
+			</tr>	
+			<tr>
+				<td><strong>Film:</strong></td>
+				<td>
+				<select th:field="*{film}">
+    				<option th:each="film:${films}" th:value="${film.id}" th:text="${film.titolo}">
+   				 	</option>
+				</select>	
+				</td>		
+			</tr>
+			<tr>
+				<td><strong>sala:</strong></td>
+				<td>
+				<select th:field="*{sala}">
+    				<option th:each="sala:${sale}" th:value="${sala.id}" th:text="${sala.nome}">
+   				 	</option>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<td><button type="submit">Invio</button></td>
+			</tr>
+		</table>
+		</div>
+		</form>
+		</div>
+		<div th:replace="fragments/base.html :: ricerca">
+        </div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+   </footer>
+</body>
+
+</html>

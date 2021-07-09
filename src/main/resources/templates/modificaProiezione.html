@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='modifica-Proiezione')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>Modifica Proiezione</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+				<li><a th:href="@{/admin}">torna al Menu</a></li>
+			</ul>
+		</div>
+		<div class="center">
+		<form th:action="@{'/admin/modificaProiezione' + '/' + ${proiezione.id}}" method="POST"  th:object="${proiezione}">	
+		<div>
+		<table class="update">
+		<th>Dati Proiezione</th>
+			<tr>
+				<td><strong>inizio: </strong><span th:text="*{inizio}"></span></td>
+				<td><strong>modifica inizio:</strong><input type="time" name="inizio" /></td>
+			</tr>	
+			<tr>
+				<td><strong>fine: </strong><span th:text="*{fine}"></span></td>
+				<td><strong>modifica fine:</strong><input type="time" name="fine" /></td>
+			</tr>
+			<tr>
+				<td><strong>film: </strong><span th:text="*{film.titolo}"></span></td>
+				<td><strong>modifica film:</strong><input type="text" name="film" /></td>
+			</tr>	
+			<tr>
+				<td><strong>sala: </strong><span th:text="*{sala.nome}"></span></td>
+				<td><strong>modifica sala:</strong><input type="text" name="sala" /></td>
+			</tr>			
+			<tr>
+			<td></td>
+				<td><button type="submit">Invio</button></td>
+			</tr>
+		</table>
+		</div>
+		</form>
+		</div>
+		<div th:replace="fragments/base.html :: ricerca">
+        </div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+   </footer>
+</body>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='modifica-user')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>Modifica Utente</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+			</ul>
+		</div>
+		<div class="center">
+		<form th:action="@{'/modificaUser' + '/' + ${user.id}}" method="POST"  th:object="${user}">	
+		<div>
+		<table class="update">
+		<th>Dati Utente</th>
+			<tr>
+				<td><strong>Nome: </strong><span th:text="*{nome}"></span></td>
+				<td><strong>modifica nome:</strong><input type="text" name="nome" /></td>
+			</tr>	
+			<tr>
+				<td><strong>Cognome: </strong><span th:text="*{cognome}"></span></td>
+				<td><strong>modifica cognome:</strong><input type="text" name="cognome" /></td>
+			</tr>	
+			<tr>
+				<td><strong>email: </strong><span th:text="*{email}"></span></td>
+				<td><strong>modifica email:</strong><input type="text" name="email" /></td>
+			</tr>		
+			<tr>
+			<td></td>
+				<td><button type="submit">Invio</button></td>
+			</tr>
+		</table>
+		</div>
+		</form>
+		</div>
+		<div th:replace="fragments/base.html :: ricerca">
+        </div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+   </footer>
+</body>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='profilo')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>Profilo Personale</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+				<li th:if="${autorizzato}"><a th:href="@{/admin}">Menu amministratore</a></li>
+			</ul>
+		</div>
+		<div class="center">
+		<div>
+			<table>
+			<tr>
+			<td>Dati Utente</td>
+			<td>Prenotazioni Utente</td>
+			</tr>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td>nome</td>
+								<td th:text="${user.nome}"></td>
+							</tr>
+							<tr>
+								<td>cognome</td>
+								<td th:text="${user.cognome}"></td>
+							</tr>
+							<tr>
+								<td>email</td>
+								<td th:text="${user.email}"></td>
+							</tr>
+							<tr>
+								<td>
+									<form th:action="@{'/modificaUser' + '/' + ${user.id}}" method="GET">
+										<button class="update" type="submit">modifica</button>
+									</form>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td>Film</td>
+								<td>Orario</td>
+								<td>Posto</td>
+								<td>Sala</td>
+							</tr>
+							<tr th:each="prenotazione:${user.prenotazioni}">
+								<td th:text="|${prenotazione.proiezione.film.titolo}|">Titolo</td>
+								<td th:text="|${prenotazione.proiezione.inizio} - ${prenotazione.proiezione.fine}|">
+									orario
+								</td>
+								<td th:text="|${prenotazione.posto.riga}${prenotazione.posto.colonna}|">orario</td>
+								<td th:text="|${prenotazione.posto.sala.nome}|">orario</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		</div>
+		<div th:replace="fragments/base.html :: ricerca">
+        </div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+   </footer>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='film-form')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>Aggiungi Film</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+				<li><a th:href="@{/admin}">torna al Menu</a></li>
+			</ul>
+		</div>
+		<div class="center">
+		<form th:action="@{/admin/film}" method="POST" enctype="multipart/form-data" th:object="${film}">
+			<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>		
+		<div>
+		<table>
+		<th>Dati Film</th>
+			<tr>
+				<td><strong>Titolo:</strong></td>
+				<td><input type="text" th:field="*{titolo}" /></td>
+				<td th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></td>
+			</tr>		
+			<tr>
+				<td><strong>Descrizione:</strong></td>
+				<td><input type="text" th:field="*{descrizione}" /></td>
+				<td th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></td>
+			</tr>
+			<tr>
+				<td><strong>regista:</strong>
+				<p>nome</p>
+				<p>cognome</p>
+				</td>
+				<td><p><input type="text" th:field="*{nomeregista}" /></p>
+				    <p><input type="text" th:field="*{cognomeregista}" /></p>
+				</td>
+				<td th:if="${#fields.hasErrors('nomeregista')}" th:errors="*{nomeregista}"></td>
+				<td th:if="${#fields.hasErrors('cognomeregista')}" th:errors="*{cognomeregista}"></td>
+			</tr>
+			</tr>
+			<tr>
+			<td><strong>
+			<label>Copertina:</label>
+			</strong>
+			</td>
+				<td><input type="file" name="file" accept="image/png, image/jpeg" /></td>
+			</tr>
+			<tr>
+				<td><button type="submit">Invio</button></td>
+			</tr>
+		</table>
+		</div>
+		</form>
+		</div>
+		<div th:replace="fragments/base.html :: ricerca">
+        </div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+   </footer>
+</body>
+
+</html>

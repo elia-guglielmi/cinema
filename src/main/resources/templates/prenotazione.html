@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head th:replace="fragments/base.html :: headerfiles(title='prenotazione')"> </head>
+  
+  <body>
+    <div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+    <nav>
+    </nav>
+      <div id="titolo"><h1>Compra Biglietto</h1></div>
+      <div id="flex-container2">
+        <div class="side">
+          <ul>
+            <li><a href="/">home</a></li>
+            <li><a th:href="@{'/film' + '/' + ${proiezione.film.id}}">torna al Film</a></li>
+          </ul>
+        </div>
+        <div class="center">
+        	<div id="schermo"> schermo cinema</div>
+			<form th:action="@{'/prenotazione' + '/' + ${proiezione.id}}" method="POST"  th:object="${prenotazione}">
+          	<div id="flex-container-posti">
+            <div class="posto" th:each="posto:${proiezione.sala.posti}">
+            <img src="/images/poltrona3%20(2).png"/>
+            <span class="occupato" th:if="${#lists.contains(proiezione.occupati, posto)}" th:text="|${posto.riga}${posto.colonna}|" ></span>
+            <span th:unless="${#lists.contains(proiezione.occupati, posto)}">
+            <input type="radio" th:value="${posto.id}" th:field="*{posto}" />
+             <label th:text="|${posto.riga}${posto.colonna}|" ></label> 
+            </span>
+            </div>
+            <div class="invio"><button type="submit">Invio</button></div>
+            </form>
+          </div>
+        </div>
+        <div th:replace="fragments/base.html :: ricerca">
+        </div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+   </footer>
+  </body>
+</html>
