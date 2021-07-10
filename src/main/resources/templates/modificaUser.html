@@ -20,19 +20,20 @@
 		<div class="form">
 		<form th:action="@{'/modificaUser' + '/' + ${user.id}}" method="POST"  th:object="${user}">	
 		<div>
-		<table class="update">
+		<table class="gestisci">
 		<th>Dati Utente</th>
+		<th>Modifica</th>
 			<tr>
 				<td><strong>Nome: </strong><span th:text="*{nome}"></span></td>
-				<td><strong>modifica nome:</strong><input type="text" name="nome" /></td>
+				<td><input type="text" name="nome" placeholder="Nome"/></td>
 			</tr>	
 			<tr>
 				<td><strong>Cognome: </strong><span th:text="*{cognome}"></span></td>
-				<td><strong>modifica cognome:</strong><input type="text" name="cognome" /></td>
+				<td><input type="text" name="cognome" placeholder="cognome"/></td>
 			</tr>	
 			<tr>
 				<td><strong>email: </strong><span th:text="*{email}"></span></td>
-				<td><strong>modifica email:</strong><input type="text" name="email" /></td>
+				<td><input type="email" name="email" placeholder="email"/></td>
 			</tr>		
 			<tr>
 			<td></td>

@@ -19,16 +19,16 @@
 		</div>
 		<div class="center">
 			<div>
-				<table>
+				<table class="gestisci">
 				<th>Film</th>
 					<tr th:each="film:${films}">
 						<td th:text="${film.titolo}">titolo:</td>
-						<td>
+						<td class="bottone">
 						<form th:action="@{'/admin/rimuovifilm' + '/' + ${film.id}}" method="GET">
 							<button class="rimuovi" type="submit">rimuovi</button>
 						</form>
 						</td>
-						<td>
+						<td class="bottone">
 							<form th:action="@{'/admin/modificaFilm' + '/' + ${film.id}}" method="GET">
 								<button class="update" type="submit">modifica</button>
 							</form>
@@ -47,16 +47,16 @@
 				</table>
 			</div>
 			<div>
-				<table>
+				<table class="gestisci">
 				<th>Sale</th>
 					<tr th:each="sala:${sale}">
 						<td th:text="${sala.nome}">titolo:</td>
-						<td>
+						<td class="bottone">
 						<form th:action="@{'/admin/rimuovisala' + '/' + ${sala.id}}" method="GET">
 							<button class="rimuovi" type="submit">rimuovi</button>
 						</form>
 						</td>
-						<td>
+						<td class="bottone">
 							<form th:action="@{'/admin/modificaSala' + '/' + ${sala.id}}" method="GET">
 								<button class="update" type="submit">modifica</button>
 							</form>
@@ -75,16 +75,16 @@
 				</table>
 			</div>
 			<div>
-				<table>
+				<table  class="gestisci">
 				<th>Proiezioni</th>
 					<tr th:each="proiezione:${proiezioni}">
 						<td th:text="|${proiezione.film.titolo} ${proiezione.inizio}|">titolo:</td>
-						<td>
+						<td class="bottone">
 						<form th:action="@{'/admin/rimuoviproiezione' + '/' + ${proiezione.id}}" method="GET">
 							<button class="rimuovi" type="submit">rimuovi</button>
 						</form>
 						</td>
-						<td>
+						<td class="bottone">
 							<form th:action="@{'/admin/modificaProiezione' + '/' + ${proiezione.id}}" method="GET">
 								<button class="update" type="submit">modifica</button>
 							</form>

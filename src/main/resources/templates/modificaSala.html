@@ -21,11 +21,12 @@
 		<div class="form">
 		<form th:action="@{'/admin/modificaSala' + '/' + ${sala.id}}" method="POST"  th:object="${sala}">	
 		<div>
-		<table class="update">
+		<table class="gestisci">
 		<th>Dati Sala</th>
+		<th>Modifica</th>
 			<tr>
 				<td><strong>Nome: </strong><span th:text="*{nome}"></span></td>
-				<td><strong>modifica nome:</strong><input type="text" name="nome" /></td>
+				<td><input type="text" name="nome" placeholder="nome" /></td>
 			</tr>		
 			<tr>
 			<td></td>

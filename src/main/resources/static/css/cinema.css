@@ -140,7 +140,7 @@ div#titolo{
   color:darkred;
   text-align:center;
   height:15vh;
-  font-size: 1.5em;
+  font-size: 1.8em;
   text-transform: capitalize;
 }
 
@@ -179,6 +179,7 @@ div.form table{
 #biglietto {
 	background-color: white;
 	color: black;
+	font-size: x-large;
 }
 
 #biglietto strong{
@@ -213,6 +214,7 @@ div.form table{
 }
 
 .center table{
+	margin-top: 5%;
   width:100%;
   margin-bottom: 10%;
   background: rgb(0, 0, 0,.2);
@@ -259,12 +261,33 @@ div.form table{
 	color: lightgray;
 }
 
+table.gestisci tr{
+	height: 7vh;
+}
+
+table.gestisci td{
+	width: 25%;
+	padding-left: 5%;
+	text-transform: capitalize;
+}
+
+table.gestisci button{
+	width: 100%;
+	height: 100%;
+}
+
+.dati {
+	width: 65%;
+}
+
+
 #schermo{
 	background-color: lightgray;
 	text-align: center;
 }
 
 .side ul{
+  margin-top: 0;	
   margin-left:0%;
   padding-left:0%;
   color:white;
@@ -273,7 +296,10 @@ div.form table{
 }
 .side li{
   width:100%;
-  margin-bottom: 5%;;
+  height: 5vh;
+  margin-bottom: 5%;
+  text-transform: capitalize;
+  font-weight: bold;
 }
 .side a{
  display:inline-block;
@@ -288,6 +314,10 @@ div.form table{
   color: darkred;
   text-decoration: none;
   background-color:white;
+}
+
+.side form{
+	text-align: center;
 }
 
 div.col {

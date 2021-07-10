@@ -21,8 +21,9 @@
 		<div class="form">
 		<form th:action="@{'/admin/modificaProiezione' + '/' + ${proiezione.id}}" method="POST"  th:object="${proiezione}">	
 		<div>
-		<table class="update">
+		<table class="gestisci">
 		<th>Dati Proiezione</th>
+		<th>Modifica</th>
 			<tr>
 				<td><strong>inizio: </strong><span th:text="*{inizio}"></span></td>
 				<td><strong>modifica inizio:</strong><input type="time" name="inizio" /></td>
