@@ -30,7 +30,8 @@
 			</tr>		
 			<tr>
 				<td><strong>Descrizione:</strong> <span th:text="*{descrizione}"></span></td>
-				<td><input type="text" name="descrizione" placeholder="Descrizione" /></td>
+				<td><textarea rows="5" cols="30" name="descrizione" placeholder="Descrizione...">
+					</textarea></td>
 			</tr>
 			<tr>
 				<td><strong>regista: </strong><span th:text="|*{nomeregista} *{cognomeregista}|"></span></td>

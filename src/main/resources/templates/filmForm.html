@@ -28,12 +28,13 @@
 		<th>Dati Film</th>
 			<tr>
 				<td><strong>Titolo:</strong></td>
-				<td><input type="text" th:field="*{titolo}" /></td>
+				<td><input type="text" th:field="*{titolo}" placeholder="Titolo"/></td>
 				<td th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></td>
 			</tr>		
 			<tr>
 				<td><strong>Descrizione:</strong></td>
-				<td><input type="text" th:field="*{descrizione}" /></td>
+				<td><textarea rows="5" cols="50" th:field="*{descrizione}" placeholder="Descrizione...">
+					Descrizione...</textarea></td>
 				<td th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></td>
 			</tr>
 			<tr>
@@ -41,8 +42,8 @@
 				<p>nome</p>
 				<p>cognome</p>
 				</td>
-				<td><p><input type="text" th:field="*{nomeregista}" /></p>
-				    <p><input type="text" th:field="*{cognomeregista}" /></p>
+				<td><p><input type="text" th:field="*{nomeregista}" placeholder="nome"/></p>
+				    <p><input type="text" th:field="*{cognomeregista}" placeholder="cognome"/></p>
 				</td>
 				<td th:if="${#fields.hasErrors('nomeregista')}" th:errors="*{nomeregista}"></td>
 				<td th:if="${#fields.hasErrors('cognomeregista')}" th:errors="*{cognomeregista}"></td>
