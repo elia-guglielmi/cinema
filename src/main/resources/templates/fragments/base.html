@@ -18,7 +18,7 @@
 					<!-- Lista annidata: voci del sotto-menu -->
 					<li sec:authorize="isAuthenticated()"><a th:href="@{/profilo}">profilo </a></li>
 					<li sec:authorize="!isAuthenticated()"><a href="login">logIn</a></li>
-					<li sec:authorize="isAuthenticated()"><a href="logout">logOut</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">logOut</a></li>
 
 				</ul> <!-- Fine del sotto-menu -->
 			</li> <!-- Chiudo il list-item -->

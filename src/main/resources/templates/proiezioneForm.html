@@ -18,7 +18,7 @@
 				<li><a th:href="@{/admin}">torna al Menu</a></li>
 			</ul>
 		</div>
-		<div class="center">
+		<div class="form">
 		<form th:action="@{/admin/proiezione}" method="POST"  th:object="${proiezione}">
 			<div th:if="${#fields.hasGlobalErrors()}">
   			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>

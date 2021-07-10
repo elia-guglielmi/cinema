@@ -18,7 +18,7 @@
 				<li><a th:href="@{/admin}">torna al Menu</a></li>
 			</ul>
 		</div>
-		<div class="center">
+		<div class="form">
 		<form th:action="@{'/admin/modificaSala' + '/' + ${sala.id}}" method="POST"  th:object="${sala}">	
 		<div>
 		<table class="update">

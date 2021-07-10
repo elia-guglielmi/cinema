@@ -26,5 +26,11 @@ public class CommentoService {
 	public Commento inserisci(Commento commento) {
 		 return this.commentoRepository.save(commento);
 	}
+	
+	@Transactional
+	public void cancellaCommentoPerId(Long id){
+		this.commentoRepository.deleteById(id);
+	}
+	
 
 }

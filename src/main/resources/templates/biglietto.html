@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles(title='modifica-Film')"> </head>
+
+<body>
+	<div th:replace="fragments/base.html :: mostraProfilo">
+	</div>
+	<nav>
+	</nav>
+	<div id="titolo">
+		<h1>Modifica Film</h1>
+	</div>
+	<div id="flex-container2">
+		<div class="side">
+			<ul>
+				<li><a href="/">home</a></li>
+			</ul>
+		</div>
+		<div class="form">	
+		<div>
+		<table id="biglietto">
+		<th>Biglietto</th>
+			<tr>
+				<td><img th:src="@{'/images/'+${prenotazione.id}+'.png'}" /></td>
+				<td>
+				<p><strong>Spettatore:</strong> <span th:text="|${prenotazione.spettatore.nome} ${prenotazione.spettatore.cognome}|"></span></p>
+				<p><strong>Film:</strong> <span th:text=${prenotazione.proiezione.film.titolo}></span></p>
+				<p><strong>Sala:</strong> <span th:text=${prenotazione.posto.sala.nome}></span></p>
+				<p><strong>Posto:</strong> <span th:text=|${prenotazione.posto.riga}${prenotazione.posto.colonna}|></span></p>
+				</td>
+			</tr>
+		</table>
+		</div>
+		</div>
+		<div th:replace="fragments/base.html :: ricerca">
+        </div>
+	</div>
+	<footer th:replace="fragments/base.html :: fondo">
+   </footer>
+</body>
+
+</html>

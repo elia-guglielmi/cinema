@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -19,8 +21,10 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import it.uniroma3.siw.spring.controller.validator.FilmValidator;
 import it.uniroma3.siw.spring.model.Commento;
+import it.uniroma3.siw.spring.model.Credentials;
 import it.uniroma3.siw.spring.model.Film;
 import it.uniroma3.siw.spring.model.Proiezione;
+import it.uniroma3.siw.spring.service.CredentialsService;
 import it.uniroma3.siw.spring.service.FilmService;
 import it.uniroma3.siw.spring.service.PostoService;
 import it.uniroma3.siw.spring.service.ProiezioneService;
@@ -37,6 +41,8 @@ public class FilmController {
 	private SalaService salaService;
 	@Autowired
 	private ProiezioneService proiezioneService;
+	@Autowired
+	private CredentialsService credentialsService;
 	
 	@Autowired
 	private FilmValidator filmValidator;
@@ -187,6 +193,13 @@ public class FilmController {
 		public String getFilm(@PathVariable("id") Long id, Model model) {
 			model.addAttribute("film", this.filmservice.filmPerId(id));
 			model.addAttribute("nuovoCommento", new Commento());
+			UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
+			if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
+	    		model.addAttribute("autorizzato",true);
+	        }else {
+	        	model.addAttribute("autorizzato",false);
+	        }
 			return "film.html";
 		}
 	 

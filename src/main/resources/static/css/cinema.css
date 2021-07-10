@@ -152,7 +152,7 @@ div#titolo{
 
 #flex-container2 {
   display: flex;
-  min-height: 60vh;
+  min-height: 50vh;
 }
 div.side{
   width:15%;
@@ -160,12 +160,50 @@ div.side{
 }
 div.center{
   width:70%;
-  background-color:darkred;
+  background-color: darkred;
   color:black;
 }
 
+div.form{
+  width:70%;
+  color:black;
+}
+
+div.form table{
+	background-color: darkred;
+	color: darkgray;
+	width: 80%;
+	margin-left: 10%;
+}
+
+#biglietto {
+	background-color: white;
+	color: black;
+}
+
+#biglietto strong{
+	color: black;
+}
+
+.form td{
+	width: 50%;
+}
+
+.form th{
+	font-size: xx-large;
+	font-weight: bolder;
+	color:darkred ;
+	background-color: gray;
+}
+
+.form td strong{
+	color: lightgray;
+}
+
+
 .center div{
   margin:10%;
+  margin-top: 2%;
 }
 
 .center table table{
@@ -177,15 +215,18 @@ div.center{
 .center table{
   width:100%;
   margin-bottom: 10%;
-  background: rgb(20, 20, 20,.2);
+  background: rgb(0, 0, 0,.2);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   box-shadow: 10px 10px 8px rgb(0, 0, 0);
   color:darkgray;
 }
 
+.titoloFilm {
+	text-align: center;
+}
+
 .titoloFilm a{
 	color:darkgray;
-	padding-left: 20%;
 	text-transform: capitalize;
 	
 }
@@ -203,7 +244,7 @@ div.center{
 }
 .immagine img{
   width:60%;
-  height:100%;
+  height:90%;
   margin-left: 20%;
 }
 
@@ -368,6 +409,8 @@ footer {
 footer.fine {
   background-color: darkred;
   height: 10vh;
+  line-height: 10vh;
+  vertical-align: middle;
 }
 
 

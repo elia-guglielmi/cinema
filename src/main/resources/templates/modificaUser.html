@@ -17,7 +17,7 @@
 				<li><a href="/">home</a></li>
 			</ul>
 		</div>
-		<div class="center">
+		<div class="form">
 		<form th:action="@{'/modificaUser' + '/' + ${user.id}}" method="POST"  th:object="${user}">	
 		<div>
 		<table class="update">

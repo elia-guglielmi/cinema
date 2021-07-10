@@ -39,7 +39,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td><span th:text="|Reggista: ${film.nomeregista} ${film.cognomeregista}|"></span></td>
+						<td><span th:text="|Regista: ${film.nomeregista} ${film.cognomeregista}|"></span></td>
 					</tr>
 				</table>
 			</div>
@@ -47,8 +47,11 @@
 				<p>commenti</p>
 				<ul>
 					<li th:each="commento:${film.commenti}">
-						<strong th:text="|${commento.utente.nome} ${commento.utente.nome}: |"></strong>
+						<strong th:text="|${commento.utente.nome} ${commento.utente.cognome}: |"></strong>
 						<span th:text="${commento.testo}"></span>
+						<form th:action="@{'/rimuovicommento' + '/' + ${film.id} + '/' + ${commento.id}}" method="GET">
+						<button type="submit" th:if="${autorizzato}">rimuovi</button>
+						</form>
 					</li>
 				</ul>
 				<form th:action="@{'/commento' + '/' + ${film.id} + '#commenti'}" method="POST" th:object="${nuovoCommento}">

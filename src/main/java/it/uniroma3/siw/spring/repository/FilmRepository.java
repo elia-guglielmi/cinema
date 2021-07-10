@@ -2,6 +2,7 @@ package it.uniroma3.siw.spring.repository;
 
 import java.util.List;
 
+import org.hibernate.annotations.OrderBy;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
