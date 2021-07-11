@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import antlr.collections.impl.LList;
 import lombok.Data;
 
-@Data
+
 @Entity
 public class Sala {
 

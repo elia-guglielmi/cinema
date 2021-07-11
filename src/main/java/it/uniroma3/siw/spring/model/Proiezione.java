@@ -19,7 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
-@Data
+
 @Entity
 public class Proiezione {
 	@Id

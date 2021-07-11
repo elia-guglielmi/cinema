@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 
 import lombok.Data;
 
-@Data
+
 @Entity
 public class Posto {
 	@Id

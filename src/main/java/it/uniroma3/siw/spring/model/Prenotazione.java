@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 
 import lombok.Data;
 
-@Data
+
 @Entity
 public class Prenotazione {
 
