@@ -78,7 +78,7 @@ public class ProiezioneController {
 				proiezione.setInizio(inizio);
 			}
 			if(fine!=null&&!fine.equals("")) {
-				proiezione.setInizio(fine);
+				proiezione.setFine(fine);
 			}
 			if(film!=null&&!film.equals("")) {
 				if(!this.filmservice.fillmPerTitolo(film).isEmpty())
