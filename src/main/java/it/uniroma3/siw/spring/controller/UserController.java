@@ -32,11 +32,6 @@ public class UserController {
 		Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
 		User user= credentials.getUser();
 		model.addAttribute("user",user);
-		if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-    		model.addAttribute("autorizzato",true);
-        }else {
-        	model.addAttribute("autorizzato",false);
-        }
     	return "profilo.html";
     }
 	

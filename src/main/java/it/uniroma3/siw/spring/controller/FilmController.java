@@ -193,13 +193,6 @@ public class FilmController {
 		public String getFilm(@PathVariable("id") Long id, Model model) {
 			model.addAttribute("film", this.filmservice.filmPerId(id));
 			model.addAttribute("nuovoCommento", new Commento());
-			UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
-			if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-	    		model.addAttribute("autorizzato",true);
-	        }else {
-	        	model.addAttribute("autorizzato",false);
-	        }
 			return "film.html";
 		}
 	 

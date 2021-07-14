@@ -15,7 +15,7 @@
 		<div class="side">
 			<ul>
 				<li><a href="/">home</a></li>
-				<li th:if="${autorizzato}"><a th:href="@{/admin}">Menu amministratore</a></li>
+				<li sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/admin}">Menu amministratore</a></li>
 			</ul>
 		</div>
 		<div class="form">

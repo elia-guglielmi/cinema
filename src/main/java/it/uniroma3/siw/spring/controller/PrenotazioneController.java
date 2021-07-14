@@ -17,6 +17,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.google.zxing.WriterException;
 
+import it.uniroma3.siw.spring.model.Commento;
 import it.uniroma3.siw.spring.model.Credentials;
 import it.uniroma3.siw.spring.model.Posto;
 import it.uniroma3.siw.spring.model.Prenotazione;
@@ -56,7 +57,7 @@ public class PrenotazioneController {
     }
 	
 	@RequestMapping(value = "/prenotazione/{id}", method = RequestMethod.POST)
-    public RedirectView prenota(@ModelAttribute("prenotazione") Prenotazione prenotazione,@PathVariable("id") Long id,Model model) {
+    public String prenota(@ModelAttribute("prenotazione") Prenotazione prenotazione,@PathVariable("id") Long id,Model model) {
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
 		User user= credentials.getUser();
@@ -76,7 +77,9 @@ public class PrenotazioneController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	return new RedirectView ("/");
+		model.addAttribute("film",prenotazione.getProiezione().getFilm());
+		model.addAttribute("nuovoCommento",new Commento());
+    	return "film.html";
     }
 	
 	@RequestMapping(value = "/biglietto/{id}", method = RequestMethod.GET)
